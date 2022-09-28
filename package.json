@@ -1,5 +1,5 @@
 {
-  "name": "webpack-setup",
+  "name": "to-do-list",
   "version": "1.0.0",
   "description": "",
   "private": true,
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NahnahAJ/Webpack-SetUp.git"
+    "url": "git+https://github.com/NahnahAJ/To-Do-List.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/NahnahAJ/Webpack-SetUp/issues"
+    "url": "https://github.com/NahnahAJ/To-Do-List/issues"
   },
-  "homepage": "https://github.com/NahnahAJ/Webpack-SetUp#readme",
+  "homepage": "https://github.com/NahnahAJ/To-Do-List#readme",
   "devDependencies": {
     "css-loader": "^6.7.1",
     "html-webpack-plugin": "^5.5.0",
