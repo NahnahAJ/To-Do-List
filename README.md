@@ -30,10 +30,16 @@ To get a local copy up and running follow these simple example steps.
 - If it suits you, on your local computer, create a directory in your preferred location (e.g in the Desktop or Document directory)
 
 ### Install
-
-- Open your Terminal/Powershell or any command line interface you use, then navigate to your created above directory or the directory you'll like to clone this project directory.
-- Type `https://github.com/NahnahAJ/To-Do-List.git` if your're using https with git or `git@github.com:NahnahAJ/To-Do-List.git` if your preferred is ssh and hit enter.
-- Navigate to the `To-Do List` directory on your local computer in your above chosen directory and open the `src/index.html` file.
+- To clone the project on your machine: Type `git clone https://github.com/NahnahAJ/To-Do-List.git` if your're using https with git or `git clone git@github.com:NahnahAJ/To-Do-List.git` if you prefer ssh and hit enter.
+- To install webpack and project dependencies _(a packet manager is required)_:
+`npm install`
+- To build project files in development mode _(the destination folder is /dist)_:
+`npm run build`
+- To build project files in production mode _(the destination folder is /dist)_:
+`npm run dist`
+- To run the project on webpack live server:
+`npm run start`
+ 
 
 ### Usage
 
