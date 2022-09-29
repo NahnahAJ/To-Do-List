@@ -2,10 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wbpack Exercise</title>
+    <script src="https://kit.fontawesome.com/4da7da78a5.js" crossorigin="anonymous"></script>
+    <title>To-Do List</title>
 </head>
 <body>
-    <h1>Hello webpack!</h1>
+<section class="overlay">
+    <div>
+        <div class="header"><div><h3>Today's To-Do</h3></div><div><i class="fa-solid fa-rotate"></i></div></div><hr>
+        <div><p><i>Add to your list...</i></p></div><hr>
+    </div>
+    <div id="list-holder">
+        <!-- List Generated from Javascript -->
+    </div>
+    <div class="bottom"><p>Clear all completed</p></div>
+</section>
+   
+    <script src="main.js"></script>
 </body>
 </html>
