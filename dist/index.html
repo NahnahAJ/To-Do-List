@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/4da7da78a5.js" crossorigin="anonymous"></script>
     <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
     <title>To-Do List</title>
 <script defer src="runtime.js"></script><script defer src="main.js"></script></head>
 <body>
@@ -15,7 +18,7 @@
             <div><h3>Today's To-Do</h3></div>
             <div><i class="fa-solid fa-rotate"></i></div>
         </div><hr>
-        <div>
+        <div class="form">
             <input type="text" id="addList" data-new-input placeholder="Add to your list...">
             <button type="submit"><i class="lni lni-arrow-left-circle"></i></button>
         </div><hr>
@@ -23,7 +26,7 @@
     <div id="list-holder">
         <!-- List Generated from Javascript -->
     </div>
-    <div class="bottom"><p>Clear all completed</p></div>
+    <div class="bottom"><button class="clear">Clear all completed</button></div>
 </section>
    
     <script src="main.js"></script>

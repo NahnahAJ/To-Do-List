@@ -32,7 +32,7 @@ section {
   background-color: #fff;
   z-index: 11;
   box-shadow: 10px 5px 5px rgb(24, 24, 24);
-  overflow: hidden;
+  overflow: scroll;
 }
 
 span {
@@ -69,6 +69,24 @@ p {
   margin: 1rem;
 }
 
+.bottom button {
+  color: rgba(128, 128, 128, 0.7);
+  padding: 1rem;
+  border: none;
+}
+
+.form button {
+  margin: 0.5rem;
+  background-color: #fff;
+  border: none;
+  font-size: 2rem;
+}
+
+.bottom button:hover {
+  background-color: rgba(128, 128, 128, 0.2);
+  width: 100%;
+}
+
 .bottom {
   color: rgba(128, 128, 128, 0.5);
   background-color: rgba(128, 128, 128, 0.1);
@@ -101,13 +119,6 @@ p {
   width: 100%;
 }
 
-.form button {
-  margin: 0.5rem;
-  background-color: #fff;
-  border: none;
-  font-size: 2rem;
-}
-
 .todo {
   border: none;
   padding: 1rem;
@@ -117,4 +128,9 @@ p {
 .todo,
 .form input {
   font-family: 'Poppins', sans-serif;
+}
+
+.completed {
+  color: rgba(20, 19, 19);
+  text-decoration: line-through;
 }

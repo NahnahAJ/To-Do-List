@@ -1,3 +1,11 @@
+const tasks = JSON.parse(localStorage.getItem('store_now'));
+
+const createNewList = (name) => ({
+  index: tasks.length + 1,
+  description: name,
+  completed: false,
+});
+
 const removeList = (element) => {
   const tasks = Array.from(JSON.parse(localStorage.getItem('store_now')));
   tasks.forEach((task) => {
@@ -19,6 +27,39 @@ const populate = (item) => {
 
   const input = document.createElement('input');
   input.type = 'checkbox';
+  input.id = `${item.index}`;
+  input.checked = createNewList.completed;
+
+  if (createNewList.completed) {
+    container.classList.add('completed');
+  }
+
+  input.addEventListener('change', (e) => {
+    const { id } = e.target;
+    const tasks = JSON.parse(localStorage.getItem('store_now'));
+    const inputElement = document.querySelector(`#sec_${id}`);
+    const completedElement = document.querySelector(`#com_${id}`);
+    if (e.target.checked) {
+      inputElement.classList.add('completed');
+      completedElement.innerText = 'completed';
+      // create a function that checks the id of the parent element of the checkbox.
+      tasks.forEach((task) => {
+        if (id === String(task.index)) {
+          task.completed = true;
+        }
+      });
+      localStorage.setItem('store_now', JSON.stringify(tasks));
+    } else {
+      inputElement.classList.remove('completed');
+      completedElement.innerText = 'not completed';
+      tasks.forEach((task) => {
+        if (id === String(task.index)) {
+          task.completed = false;
+        }
+      });
+      localStorage.setItem('store_now', JSON.stringify(tasks));
+    }
+  });
 
   const input2 = document.createElement('input');
   input2.value = `${item.description}`;
@@ -26,9 +67,26 @@ const populate = (item) => {
   input2.id = `sec_${item.index}`;
   input2.className = 'todo';
 
+  input2.addEventListener('change', (e) => {
+    const { id } = e.target.parentElement;
+    const tasks = JSON.parse(localStorage.getItem('store_now'));
+    tasks.forEach((task) => {
+      if (id === String(task.index)) {
+        task.description = e.target.value;
+      }
+    });
+    localStorage.setItem('store_now', JSON.stringify(tasks));
+  });
+
+  if (item.completed) {
+    input2.classList.add('completed');
+    input.checked = true;
+  }
+
   const div2 = document.createElement('div');
 
   const paragraph = document.createElement('p');
+  paragraph.id = `com_${item.index}`;
   paragraph.innerText = `${item.completed ? 'completed' : 'not completed'}`;
 
   const buttonMenu = document.createElement('button');
@@ -49,7 +107,9 @@ const populate = (item) => {
   const buttonEdit = document.createElement('button');
   buttonEdit.id = `edit${item.index}`;
   buttonEdit.className = 'edit';
-  buttonEdit.innerText = 'EDIT';
+
+  const icon3 = document.createElement('i');
+  icon3.className = 'lni lni-pencil';
 
   buttonEdit.addEventListener('click', () => {
     const input = document.querySelector(`#sec_${item.index}`);
@@ -78,6 +138,7 @@ const populate = (item) => {
   div2.appendChild(paragraph);
   buttonMenu.appendChild(icon);
   buttonDelete.appendChild(icon2);
+  buttonEdit.appendChild(icon3);
 
   container.appendChild(input);
   container.appendChild(input2);
