@@ -32,6 +32,7 @@ section {
   background-color: #fff;
   z-index: 11;
   box-shadow: 10px 5px 5px rgb(24, 24, 24);
+  overflow: hidden;
 }
 
 span {
@@ -45,6 +46,7 @@ span {
   align-content: space-around;
   gap: 27rem;
   margin: 1rem;
+  width: 100%;
 }
 
 #list-holder {
@@ -72,4 +74,47 @@ p {
   background-color: rgba(128, 128, 128, 0.1);
   width: 90vh;
   text-align: center;
+}
+
+.edit,
+.menu,
+.swap-btn {
+  background-color: white;
+  padding: 0.3rem;
+  border: none;
+  font-size: 1rem;
+}
+
+.edit,
+.swap-btn {
+  display: none;
+}
+
+.form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form input {
+  border: none;
+  padding: 1rem;
+  width: 100%;
+}
+
+.form button {
+  margin: 0.5rem;
+  background-color: #fff;
+  border: none;
+  font-size: 2rem;
+}
+
+.todo {
+  border: none;
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+.todo,
+.form input {
+  font-family: 'Poppins', sans-serif;
 }

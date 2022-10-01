@@ -5,14 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/4da7da78a5.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
     <title>To-Do List</title>
 </head>
 <body>
 <section class="overlay">
-    <div>
-        <div class="header"><div><h3>Today's To-Do</h3></div><div><i class="fa-solid fa-rotate"></i></div></div><hr>
-        <div><p><i>Add to your list...</i></p></div><hr>
-    </div>
+    <form action="" data-new-list>
+        <div class="header">
+            <div><h3>Today's To-Do</h3></div>
+            <div><i class="fa-solid fa-rotate"></i></div>
+        </div><hr>
+        <div class="form">
+            <input type="text" id="addList" data-new-input placeholder="Add to your list...">
+            <button type="submit"><i class="lni lni-arrow-left-circle"></i></button>
+        </div><hr>
+    </form>
     <div id="list-holder">
         <!-- List Generated from Javascript -->
     </div>
