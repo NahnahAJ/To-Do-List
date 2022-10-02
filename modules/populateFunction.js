@@ -1,12 +1,7 @@
 const tasks = JSON.parse(localStorage.getItem('store_now'));
-let totaltasks = tasks.length;
-const indexFunc = () => {
-  totaltasks += 1;
-  return totaltasks;
-};
 
 const createNewList = (name) => ({
-  index: indexFunc(),
+  index: tasks.length + 1,
   description: name,
   completed: false,
 });
@@ -40,13 +35,14 @@ const populate = (item) => {
   }
 
   input.addEventListener('change', (e) => {
-    createNewList.completed = e.target.checked;
-
-    if (createNewList.completed) {
-      container.classList.add('completed');
+    const { id } = e.target;
+    const tasks = JSON.parse(localStorage.getItem('store_now'));
+    const inputElement = document.querySelector(`#sec_${id}`);
+    const completedElement = document.querySelector(`#com_${id}`);
+    if (e.target.checked) {
+      inputElement.classList.add('completed');
+      completedElement.innerText = 'completed';
       // create a function that checks the id of the parent element of the checkbox.
-      const { id } = e.target;
-      const tasks = JSON.parse(localStorage.getItem('store_now'));
       tasks.forEach((task) => {
         if (id === String(task.index)) {
           task.completed = true;
@@ -54,9 +50,8 @@ const populate = (item) => {
       });
       localStorage.setItem('store_now', JSON.stringify(tasks));
     } else {
-      container.classList.remove('completed');
-      const { id } = e.target;
-      const tasks = JSON.parse(localStorage.getItem('store_now'));
+      inputElement.classList.remove('completed');
+      completedElement.innerText = 'not completed';
       tasks.forEach((task) => {
         if (id === String(task.index)) {
           task.completed = false;
@@ -91,6 +86,7 @@ const populate = (item) => {
   const div2 = document.createElement('div');
 
   const paragraph = document.createElement('p');
+  paragraph.id = `com_${item.index}`;
   paragraph.innerText = `${item.completed ? 'completed' : 'not completed'}`;
 
   const buttonMenu = document.createElement('button');
