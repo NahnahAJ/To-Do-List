@@ -55,14 +55,14 @@ const populate = (item) => {
       localStorage.setItem('store_now', JSON.stringify(tasks));
     } else {
       container.classList.remove('completed');
-      // const { id } = e.target;
-      // const tasks = JSON.parse(localStorage.getItem("store_now"));
-      // tasks.forEach((task) => {
-      //   if (id == String(task.index)) {
-      //     task.completed = false;
-      //   }
-      // });
-      // localStorage.setItem("store_now", JSON.stringify(tasks));
+      const { id } = e.target;
+      const tasks = JSON.parse(localStorage.getItem("store_now"));
+      tasks.forEach((task) => {
+        if (id == String(task.index)) {
+          task.completed = false;
+        }
+      });
+      localStorage.setItem("store_now", JSON.stringify(tasks));
     }
   });
 
