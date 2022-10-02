@@ -5,6 +5,8 @@ import loadTasks from '../modules/displayfromLS.js';
 
 const newList = document.querySelector('[data-new-list]');
 const newInput = document.querySelector('[data-new-input]');
+const clear = document.querySelector('.clear');
+// const holder = document.getElementById('list-holder');
 
 const saveToStorage = (newTask) => {
   localStorage.setItem('store_now', JSON.stringify(newTask));
@@ -32,3 +34,14 @@ newList.addEventListener('submit', (e) => {
 
 // On load Display all Tasks
 loadTasks();
+
+const allClear = document.querySelector('#clearAll');
+// Function to clear all checked boxes
+clear.addEventListener('click', () => {
+  const tasksAll = JSON.parse(localStorage.getItem('store_now'));
+  // const completedItem = document.querySelectorAll('.completed');
+  // completedItem.forEach((val) => val.parentElement.remove());
+  const filteredList = tasksAll.filter((obj) => obj.completed !== true);
+  localStorage.setItem('store_now', JSON.stringify(filteredList));
+  window.location.reload();
+});
