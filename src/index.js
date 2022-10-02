@@ -35,7 +35,6 @@ newList.addEventListener('submit', (e) => {
 // On load Display all Tasks
 loadTasks();
 
-const allClear = document.querySelector('#clearAll');
 // Function to clear all checked boxes
 clear.addEventListener('click', () => {
   const tasksAll = JSON.parse(localStorage.getItem('store_now'));

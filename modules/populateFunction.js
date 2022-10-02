@@ -1,3 +1,16 @@
+const tasks = JSON.parse(localStorage.getItem('store_now'));
+let totaltasks = tasks.length;
+const indexFunc = () => {
+  totaltasks += 1;
+  return totaltasks;
+};
+
+const createNewList = (name) => ({
+  index: indexFunc(),
+  description: name,
+  completed: false,
+});
+
 const removeList = (element) => {
   const tasks = Array.from(JSON.parse(localStorage.getItem('store_now')));
   tasks.forEach((task) => {
@@ -19,12 +32,61 @@ const populate = (item) => {
 
   const input = document.createElement('input');
   input.type = 'checkbox';
+  input.id = `${item.index}`;
+  input.checked = createNewList.completed;
+
+  if (createNewList.completed) {
+    container.classList.add('completed');
+  }
+
+  input.addEventListener('change', (e) => {
+    createNewList.completed = e.target.checked;
+
+    if (createNewList.completed) {
+      container.classList.add('completed');
+      // create a function that checks the id of the parent element of the checkbox.
+      const { id } = e.target;
+      const tasks = JSON.parse(localStorage.getItem('store_now'));
+      tasks.forEach((task) => {
+        if (id === String(task.index)) {
+          task.completed = true;
+        }
+      });
+      localStorage.setItem('store_now', JSON.stringify(tasks));
+    } else {
+      container.classList.remove('completed');
+      // const { id } = e.target;
+      // const tasks = JSON.parse(localStorage.getItem("store_now"));
+      // tasks.forEach((task) => {
+      //   if (id == String(task.index)) {
+      //     task.completed = false;
+      //   }
+      // });
+      // localStorage.setItem("store_now", JSON.stringify(tasks));
+    }
+  });
 
   const input2 = document.createElement('input');
   input2.value = `${item.description}`;
   input2.setAttribute('readonly', 'readonly');
   input2.id = `sec_${item.index}`;
   input2.className = 'todo';
+
+  input2.addEventListener('change', (e) => {
+    const { id } = e.target.parentElement;
+    const tasks = JSON.parse(localStorage.getItem('store_now'));
+    tasks.forEach((task) => {
+      if (id === String(task.index)) {
+        task.description = e.target.value;
+      }
+    });
+    localStorage.setItem('store_now', JSON.stringify(tasks));
+  });
+
+  if (item.completed) {
+    input2.classList.add('completed');
+    input.checked = true;
+  }
 
   const div2 = document.createElement('div');
 
@@ -49,7 +111,9 @@ const populate = (item) => {
   const buttonEdit = document.createElement('button');
   buttonEdit.id = `edit${item.index}`;
   buttonEdit.className = 'edit';
-  buttonEdit.innerText = 'EDIT';
+
+  const icon3 = document.createElement('i');
+  icon3.className = 'lni lni-pencil';
 
   buttonEdit.addEventListener('click', () => {
     const input = document.querySelector(`#sec_${item.index}`);
@@ -78,6 +142,7 @@ const populate = (item) => {
   div2.appendChild(paragraph);
   buttonMenu.appendChild(icon);
   buttonDelete.appendChild(icon2);
+  buttonEdit.appendChild(icon3);
 
   container.appendChild(input);
   container.appendChild(input2);

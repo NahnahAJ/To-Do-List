@@ -75,10 +75,16 @@ p {
   border: none;
 }
 
+.form button {
+  margin: 0.5rem;
+  background-color: #fff;
+  border: none;
+  font-size: 2rem;
+}
+
 .bottom button:hover {
   background-color: rgba(128, 128, 128, 0.2);
   width: 100%;
-  
 }
 
 .bottom {
@@ -113,13 +119,6 @@ p {
   width: 100%;
 }
 
-.form button {
-  margin: 0.5rem;
-  background-color: #fff;
-  border: none;
-  font-size: 2rem;
-}
-
 .todo {
   border: none;
   padding: 1rem;
@@ -131,7 +130,7 @@ p {
   font-family: 'Poppins', sans-serif;
 }
 
-  .completed {
-    color: rgba(20, 19, 19);
-    text-decoration: line-through;
-  }
+.completed {
+  color: rgba(20, 19, 19);
+  text-decoration: line-through;
+}
