@@ -56,13 +56,13 @@ const populate = (item) => {
     } else {
       container.classList.remove('completed');
       const { id } = e.target;
-      const tasks = JSON.parse(localStorage.getItem("store_now"));
+      const tasks = JSON.parse(localStorage.getItem('store_now'));
       tasks.forEach((task) => {
-        if (id == String(task.index)) {
+        if (id === String(task.index)) {
           task.completed = false;
         }
       });
-      localStorage.setItem("store_now", JSON.stringify(tasks));
+      localStorage.setItem('store_now', JSON.stringify(tasks));
     }
   });
 
