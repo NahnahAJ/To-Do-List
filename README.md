@@ -14,7 +14,7 @@
 
 ## Live Demo 
 
-![Live Link](https://nahnahaj.github.io/To-Do-List/)
+[Live Demo Link](https://nahnahaj.github.io/To-Do-List/dist/)
 
 
 ## Getting Started
